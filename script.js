@@ -171,7 +171,7 @@
     __app.activeNavReady = true;
 
     var path = window.location.pathname;
-    var isHome = path === '/' || //index.html?$/i.test(path);
+    var isHome = path === '/' || /index\.html?$/i.test(path);
 
     document.querySelectorAll('.nav-link').forEach(function (link) {
       link.removeAttribute('aria-current');
@@ -180,13 +180,13 @@
       var href = link.getAttribute('href');
       if (!href) return;
 
-      var normalised = href.replace(/^//, '').replace(/index.html?$/, '') || '/';
-      var currentNorm = path.replace(/^//, '').replace(/index.html?$/, '') || '/';
+      var normalised = href.replace(/^\/\//, '').replace(/index\.html?$/, '') || '/';
+      var currentNorm = path.replace(/^\/\//, '').replace(/index\.html?$/, '') || '/';
 
       var matched = false;
 
       if (isHome) {
-        matched = (href === '/' || //?(index.html?)?$/.test(href));
+        matched = (href === '/' || /\?(index\.html?)?$/.test(href));
       } else {
         matched = (normalised !== '/' && currentNorm.indexOf(normalised) === 0);
       }
@@ -343,12 +343,12 @@
   }
 
   function validateEmail(value) {
-    var re = /^[^s@]+@[^s@]+.[^s@]+$/;
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(value.trim());
   }
 
   function validatePhone(value) {
-    var re = /^[+-ds()[]]{7,20}$/;
+    var re = /^[+\-ds()\[\]]{7,20}$/;
     return re.test(value.trim());
   }
 

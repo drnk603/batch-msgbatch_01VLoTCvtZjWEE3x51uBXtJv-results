@@ -869,7 +869,6 @@ textarea.form-control {
   transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
   display: flex;
   flex-direction: column;
-  height: 100%;
   overflow: hidden;
 }
 

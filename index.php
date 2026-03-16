@@ -1,6 +1,66 @@
 <!doctype html>
 <html lang="lv">
  <head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://domain.com/#org",
+      "name": "domain",
+      "url": "https://domain.com",
+      "email": "partners@domain.com",
+      "telephone": "+371 6 6490484",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Skanste City, Skanstes iela 50, Floor 9, Office 302, LV-1013 Rīga"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "partners@domain.com",
+        "telephone": "+371 6 6490484"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://domain.com/#website",
+      "url": "https://domain.com",
+      "name": "domain",
+      "publisher": {
+        "@id": "https://domain.com/#org"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://domain.com#webpage",
+      "url": "https://domain.com",
+      "name": "&lt;?php echo htmlspecialchars($page_title); ?&gt;",
+      "isPartOf": {
+        "@id": "https://domain.com/#website"
+      },
+      "about": {
+        "@id": "https://domain.com/#org"
+      },
+      "inLanguage": "lv",
+      "description": "&lt;?php echo htmlspecialchars($page_desc); ?&gt;"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://domain.com#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://domain.com"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--?php
@@ -34,32 +94,34 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
- </head>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<link rel="stylesheet" href="./header-footer.css">
+<link rel="stylesheet" href="./consent.css">
+<script src="./consent.js"></script>
+</head>
  <body>
-  <header>
-   <nav class="navbar navbar-expand-md sticky-top bg-white border-bottom" aria-label="Galvenā navigācija" role="navigation">
-    <div class="container">
-     <a class="navbar-brand" href="/" aria-label="&lt;?php echo htmlspecialchars($brand_name); ?&gt; — sākumlapa"> <span class="brand-icon" aria-hidden="true"> 
-       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
-        <rect width="32" height="32" rx="8" fill="#E91E8C" /> <path d="M7 20l3-8h12l3 8H7z" fill="#fff" opacity=".9" /> <circle cx="11" cy="21" r="2" fill="#fff" /> <circle cx="21" cy="21" r="2" fill="#fff" /> <path d="M14 14l1-3h2l1 3h-4z" fill="#fff" opacity=".6" />
-       </svg> 
-      </span> <span class="brand-name"><!--?php echo htmlspecialchars($brand_name); ?--></span> </a>
-     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavCollapse" aria-controls="mainNavCollapse" aria-expanded="false" aria-label="Atvērt/aizvērt navigāciju"><span class="navbar-toggler-icon"></span></button>
-     <a href="/#quote" class="btn btn-cta-nav d-none d-md-inline-flex ms-auto me-3"> Aprēķināt cenu </a>
-     <div class="collapse navbar-collapse" id="mainNavCollapse">
-      <ul class="navbar-nav ms-auto gap-md-1" role="list">
-       <li class="nav-item" role="listitem"><a class="nav-link" href="/#services" aria-current="false">Pakalpojumi</a></li>
-       <li class="nav-item" role="listitem"><a class="nav-link" href="/#how-it-works" aria-current="false">Kā tas darbojas</a></li>
-       <li class="nav-item" role="listitem"><a class="nav-link" href="/#cases" aria-current="false">Gadījumi</a></li>
-       <li class="nav-item" role="listitem"><a class="nav-link" href="/#team" aria-current="false">Komanda</a></li>
-       <li class="nav-item" role="listitem"><a class="nav-link" href="/#blog" aria-current="false">Blogs</a></li>
-       <li class="nav-item" role="listitem"><a class="nav-link" href="/#contact" aria-current="false">Kontakti</a></li>
-       <li class="nav-item d-md-none" role="listitem"><a class="btn btn-cta-nav w-100 mt-2" href="/#quote">Aprēķināt cenu</a></li>
+<header class="dr-header" data-dr-variant="v1">
+  <div class="dr-header-inner">
+    <a class="dr-logo" href="./index.html" aria-label="domain">domain</a>
+
+    <nav class="dr-nav" aria-label="Primary navigation">
+      <ul class="dr-nav-list">
+        <li class="dr-nav-item"><a class="dr-nav-link" href="./index.php">Home</a></li>
       </ul>
-     </div>
-    </div>
-   </nav>
-  </header>
+    </nav>
+
+    <button class="dr-burger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="dr-mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="dr-mobile-menu" id="dr-mobile-menu" aria-label="Mobile navigation">
+  <ul class="dr-mobile-nav-list">
+    <li class="dr-nav-item"><a class="dr-nav-link" href="./index.php">Home</a></li>
+  </ul>
+</nav>
+
   <!-- ===== HEADER / NAVIGATION ===== -->
   <!-- ===== MAIN CONTENT ===== -->
   <main id="main-content">
@@ -251,7 +313,7 @@
            <!--?php endif; ?-->
           </div>
           <div class="col-12 col-sm-6">
-           <label for="email" class="form-label">E-pasta adrese <span class="required-mark" aria-hidden="true">*</span><span class="visually-hidden">(obligāts lauks)</span></label> <input type="email" class="form-control &lt;?php echo isset($form_errors['email']) ? 'is-invalid' : ''; ?&gt;" id="email" name="email" value="&lt;?php echo htmlspecialchars($form_data['email']); ?&gt;" autocomplete="email" required aria-required="true" aria-describedby="&lt;?php echo isset($form_errors['email']) ? 'email-error' : ''; ?&gt;" placeholder="info@domain.com"> <!--?php if (isset($form_errors['email'])): ?-->
+           <label for="email" class="form-label">E-pasta adrese <span class="required-mark" aria-hidden="true">*</span><span class="visually-hidden">(obligāts lauks)</span></label> <input type="email" class="form-control &lt;?php echo isset($form_errors['email']) ? 'is-invalid' : ''; ?&gt;" id="email" name="email" value="&lt;?php echo htmlspecialchars($form_data['email']); ?&gt;" autocomplete="email" required aria-required="true" aria-describedby="&lt;?php echo isset($form_errors['email']) ? 'email-error' : ''; ?&gt;" placeholder="partners@domain.com"> <!--?php if (isset($form_errors['email'])): ?-->
            <div class="invalid-feedback" id="email-error" role="alert">
             <!--?php echo $form_errors['email']; ?-->
            </div>
@@ -568,7 +630,7 @@
          </svg>
         </div>
         <h3 class="contact-title">Tālrunis</h3>
-        <a href="tel:{telephone}" class="contact-value">{telephone}</a>
+        <a href="tel:+371 6 6490484" class="contact-value">+371 6 6490484</a>
        </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="80">
@@ -590,7 +652,7 @@
          </svg>
         </div>
         <h3 class="contact-title">Adrese</h3>
-        <address class="contact-value">{address}</address>
+        <address class="contact-value">Skanste City, Skanstes iela 50, Floor 9, Office 302, LV-1013 Rīga</address>
        </div>
       </div>
      </div>
@@ -612,89 +674,50 @@
    </div>
   </div>
   <!-- ===== SCRIPTS ===== -->
-  <footer class="site-footer" role="contentinfo">
-   <div class="footer-top">
-    <div class="container">
-     <div class="row g-5">
-      <div class="col-12 col-md-4 col-lg-4">
-       <a class="footer-brand" href="/" aria-label="&lt;?php echo htmlspecialchars($brand_name); ?&gt; — mājaslapa"> <span class="brand-icon" aria-hidden="true"> 
-         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
-          <rect width="32" height="32" rx="8" fill="#E91E8C" /> <path d="M7 20l3-8h12l3 8H7z" fill="#fff" opacity=".9" /> <circle cx="11" cy="21" r="2" fill="#fff" /> <circle cx="21" cy="21" r="2" fill="#fff" /> <path d="M14 14l1-3h2l1 3h-4z" fill="#fff" opacity=".6" />
-         </svg> 
-        </span> <span class="brand-name"><!--?php echo htmlspecialchars($brand_name); ?--></span> </a>
-       <p class="footer-about">Licencēts auto apdrošināšanas brokeris Latvijā. Palīdzam klientiem atrast labākos apdrošināšanas risinājumus par konkurētspējīgām cenām.</p>
-       <address class="footer-address"><span class="footer-address__icon" aria-hidden="true"> 
-         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
-         </svg> 
-        </span> {address}</address>
-       <p class="footer-phone"><a href="tel:{telephone}">{telephone}</a></p>
-       <p class="footer-email"><a href="mailto:&lt;?php echo $support_email; ?&gt;"><!--?php echo $support_email; ?--></a></p>
-      </div>
-      <div class="col-6 col-md-4 col-lg-2">
-       <h3 class="footer-heading">Pakalpojumi</h3>
-       <nav aria-label="Pakalpojumu navigācija">
-        <ul class="footer-links" role="list">
-         <li role="listitem"><a href="/#services">OCTA</a></li>
-         <li role="listitem"><a href="/#services">KASKO</a></li>
-         <li role="listitem"><a href="/#services">Ceļojumu apdrošināšana</a></li>
-         <li role="listitem"><a href="/#services">Ārkārtas palīdzība</a></li>
-        </ul>
-       </nav>
-      </div>
-      <div class="col-6 col-md-4 col-lg-2">
-       <h3 class="footer-heading">Ātrās saites</h3>
-       <nav aria-label="Ātrās saites navigācija">
-        <ul class="footer-links" role="list">
-         <li role="listitem"><a href="/#quote">Aprēķināt cenu</a></li>
-         <li role="listitem"><a href="/#how-it-works">Kā tas darbojas</a></li>
-         <li role="listitem"><a href="/#cases">Gadījumu izpēte</a></li>
-         <li role="listitem"><a href="/#team">Komanda</a></li>
-         <li role="listitem"><a href="/#blog">Blogs</a></li>
-         <li role="listitem"><a href="/#faq">FAQ</a></li>
-        </ul>
-       </nav>
-      </div>
-      <div class="col-12 col-md-4 col-lg-4">
-       <h3 class="footer-heading">Darba laiks</h3>
-       <dl class="footer-hours">
-        <div class="footer-hours__row">
-         <dt>Pirmdiena – Piektdiena</dt>
-         <dd>8:00 – 20:00</dd>
-        </div>
-        <div class="footer-hours__row">
-         <dt>Sestdiena</dt>
-         <dd>9:00 – 16:00</dd>
-        </div>
-        <div class="footer-hours__row">
-         <dt>Svētdiena</dt>
-         <dd>Slēgts</dd>
-        </div>
-       </dl>
-       <a href="/#quote" class="btn btn-fuchsia mt-3 w-100">Saņemt piedāvājumu</a>
-      </div>
-     </div>
+  <footer class="dr-footer">
+  <div class="dr-footer-inner">
+    <div class="dr-footer-brand">
+      <div class="dr-footer-logo-text">domain</div>
+      <p class="dr-footer-disclaimer">"domain" ir neatkarīgs pakalpojums. Visa informācija šajā vietnē domain.com ir paredzēta tikai vispārīgiem informatīviem nolūkiem un nav uzskatāma par juridisku, finanšu vai jebkāda cita veida profesionālu konsultāciju.</p>
     </div>
-   </div>
-   <div class="footer-bottom">
-    <div class="container">
-     <div class="row align-items-center g-2">
-      <div class="col-12 col-md-6">
-       <p class="footer-copy">© <!--?php echo $current_year; ?--> <!--?php echo htmlspecialchars($brand_name); ?-->. Visas tiesības aizsargātas.</p>
-      </div>
-      <div class="col-12 col-md-6">
-       <nav aria-label="Juridiskās saites navigācija">
-        <ul class="footer-legal-links" role="list">
-         <li role="listitem"><a href="/privatuma-politika">Privātuma politika</a></li>
-         <li role="listitem"><a href="/lietosanas-noteikumi">Lietošanas noteikumi</a></li>
-         <li role="listitem"><a href="/sikdatnes">Sīkdatnes</a></li>
+    <div class="dr-footer-grid">
+      <nav class="dr-footer-nav" aria-label="Galvenā navigācija">
+        <h2 class="dr-footer-heading">Navigācija</h2>
+        <ul class="dr-footer-list">
+          <li class="dr-footer-item"><a href="./index.php" class="dr-footer-link">Home</a></li>
         </ul>
-       </nav>
+      </nav>
+      <nav class="dr-footer-legal" aria-label="Juridiskā informācija">
+        <h2 class="dr-footer-heading">Juridiskā informācija</h2>
+        <ul class="dr-footer-list dr-footer-list-empty">
+        </ul>
+      </nav>
+      <div class="dr-footer-contact">
+        <h2 class="dr-footer-heading">Kontakti</h2>
+        <ul class="dr-footer-list">
+          <li class="dr-footer-item"><span class="dr-footer-contact-label">Adrese:</span> <span class="dr-footer-contact-value">Skanste City, Skanstes iela 50, Floor 9, Office 302, LV-1013 Rīga</span></li>
+          <li class="dr-footer-item"><span class="dr-footer-contact-label">Tālrunis:</span> <a href="tel:+371 6 6490484" class="dr-footer-link">+371 6 6490484</a></li>
+          <li class="dr-footer-item"><span class="dr-footer-contact-label">E-pasts:</span> <a href="mailto:partners@domain.com" class="dr-footer-link">partners@domain.com</a></li>
+        </ul>
       </div>
-     </div>
     </div>
-   </div>
-  </footer>
-  <script src="script.js" defer></script>
- </body>
+    <div class="dr-footer-bottom">
+      <p class="dr-footer-meta"><span class="dr-year"></span> © domain. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+  
+   
+  
+
+<script src="script.js" defer></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+if (typeof AOS !== "undefined" && !window.__AOS_INITIALIZED__) {
+  AOS.init({ once: true, duration: 700, easing: "ease-out-cubic" });
+  window.__AOS_INITIALIZED__ = true;
+}
+</script>
+<script src="./header-footer.js"></script>
+</body>
 </html>
